@@ -3,6 +3,9 @@ import { browser } from 'wxt/browser';
 export default defineBackground(() => {
   console.log('QRift background service worker started.', { id: browser.runtime.id });
   
+  // Open side panel on extension icon click
+  browser.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(console.error);
+  
   // Set up offscreen document
   async function setupOffscreenDocument(path: string) {
     if (await browser.offscreen.hasDocument()) return;

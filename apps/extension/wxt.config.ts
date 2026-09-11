@@ -9,6 +9,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
   }),
   manifest: {
+    name: "QRift",
+    description: "Metamorphic forensic scanner for QR codes",
+    action: {},
     permissions: [
       'sidePanel',
       'storage',
@@ -17,9 +20,6 @@ export default defineConfig({
       'contextMenus'
     ],
     host_permissions: [
-      '*://mail.google.com/*'
-    ],
-    optional_host_permissions: [
       '*://*/*'
     ]
   }

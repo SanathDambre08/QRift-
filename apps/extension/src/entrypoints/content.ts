@@ -1,7 +1,7 @@
 export default defineContentScript({
-  matches: ['*://mail.google.com/*'],
+  matches: ['<all_urls>'],
   main() {
-    console.log('QRift Gmail integration active.');
+    console.log('QRift global integration active.');
 
     const observer = new MutationObserver((mutations) => {
       // Throttle and check for new images in the DOM

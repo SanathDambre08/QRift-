@@ -1,6 +1,6 @@
 {
-  "name": "wxt-react-starter",
-  "description": "manifest.json description",
+  "name": "qrift",
+  "description": "Metamorphic forensic scanner for QR codes",
   "private": true,
   "version": "0.0.0",
   "type": "module",
