@@ -1,16 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
-
-@theme {
-  --color-graphite-900: #1a1a1a;
-  --color-graphite-800: #242424;
-  --color-cyan-400: #22d3ee;
-  --color-cyan-500: #06b6d4;
-  --color-slate-900: #0f172a;
-}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--color-slate-900);
-  color: #f8fafc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #030303;
+  color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-neutral-900/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+  
+  .glass-card {
+    @apply bg-neutral-900/30 backdrop-blur-md border border-white/5 hover:border-white/20 shadow-lg hover:shadow-indigo-500/10 transition-all duration-300;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400;
+  }
+}
+
+/* Background animated glow orbs */
+.bg-glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+  animation: float 20s ease-in-out infinite alternate;
+}
+
+.bg-glow-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: #6366f1; /* Indigo */
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.bg-glow-orb-2 {
+  width: 600px;
+  height: 600px;
+  background: #a855f7; /* Purple */
+  bottom: -200px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(50px, 30px) scale(1.1);
+  }
+  100% {
+    transform: translate(-30px, 50px) scale(0.9);
+  }
+}
+
+@keyframes stats-grow {
+  0% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+}
+
+@keyframes stats-draw {
+  0% { stroke-dasharray: 200; stroke-dashoffset: 200; }
+  100% { stroke-dasharray: 200; stroke-dashoffset: 0; }
+}
+
+@keyframes stats-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes stats-bounce {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.4); }
+}
+
+.stats-grow {
+  animation: stats-grow 1s ease-out forwards;
+}
+
+.stats-draw {
+  animation: stats-draw 2s ease-out forwards;
+}
+
+.stats-fade-in {
+  animation: stats-fade-in 2s ease-out forwards;
+  animation-delay: 1s;
+}
+
+.stats-bounce {
+  animation: stats-bounce 1.5s ease-in-out infinite;
+  transform-origin: bottom;
 }

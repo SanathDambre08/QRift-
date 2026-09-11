@@ -33,7 +33,7 @@ export class ZXingDecoder implements QRDecoder {
       // @zxing/library's BrowserQRCodeReader.decodeFromCanvas is available?
       // If it doesn't support OffscreenCanvas, we might need a workaround. Let's try decodeFromCanvas.
       // Types might complain if it strictly wants HTMLCanvasElement.
-      const result = await this.reader.decodeFromCanvas(canvas as any);
+      const result = await (this.reader as any).decodeFromCanvas(canvas);
       
       return {
         decoderId: this.id,

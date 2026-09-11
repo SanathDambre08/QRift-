@@ -1,13 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  /* PRD Section 6 UI Design System */
-  --color-graphite-900: #1a1a1a;
-  --color-graphite-800: #2d2d2d;
-  --color-slate-700: #3f3f46;
-  --color-cyan-500: #06b6d4;
-  --color-cyan-400: #22d3ee;
-  
   /* Radii */
   --radius-card: 14px;
   --radius-control: 10px;
@@ -15,7 +9,9 @@
 
 @layer base {
   body {
-    background-color: var(--color-graphite-900);
-    color: #e5e5e5;
+    background-color: var(--color-neutral-950);
+    color: var(--color-neutral-50);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 }

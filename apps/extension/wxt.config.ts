@@ -17,7 +17,8 @@ export default defineConfig({
       'storage',
       'scripting',
       'activeTab',
-      'contextMenus'
+      'contextMenus',
+      'offscreen'
     ],
     host_permissions: [
       '*://*/*'

@@ -4,9 +4,15 @@ export function calculateIntegrityScore(
   decoders: DecodeResult[],
   transforms: TransformResult[],
   structure: StructureReport,
+  payloadThreatScore: number = 0,
   context?: ContextReport
 ): { score: number, status: ScanReport['status'] } {
   const successfulDecodes = decoders.filter(d => d.success);
+  
+  // If no decoders succeeded, the QR is unreadable or non-existent
+  if (successfulDecodes.length === 0) {
+    return { score: 0, status: 'error' };
+  }
   
   // payloadConsensus: agreement among successful decoders
   let payloadConsensus = 1;
@@ -26,11 +32,14 @@ export function calculateIntegrityScore(
   // contextConsistency: default to 1 if no mismatch
   const contextConsistency = context?.mismatch ? 0 : 1;
 
+  // payloadSafety: 1 - payloadThreatScore
+  const payloadSafety = Math.max(0, 1 - payloadThreatScore);
+
   const stability = 
-    (0.40 * payloadConsensus) + 
+    (0.30 * payloadConsensus) + 
     (0.30 * transformConsistency) + 
-    (0.20 * structureConformance) + 
-    (0.10 * contextConsistency);
+    (0.30 * payloadSafety) + 
+    (0.10 * structureConformance);
 
   const score = Math.round(Math.max(0, Math.min(1, stability)) * 100);
 

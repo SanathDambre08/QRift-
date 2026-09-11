@@ -32,11 +32,18 @@ export type TransformResult = {
   success: boolean;
 };
 
+export type SafetyCheck = {
+  name: string;
+  passed: boolean;
+  message?: string;
+};
+
 export type DestinationReport = {
   url: string;
   normalizedUrl: string;
   hostname: string;
   reputationStatus?: string;
+  safetyChecks?: SafetyCheck[];
 };
 
 export type ContextReport = {
@@ -61,6 +68,7 @@ export type ScanReport = {
   transforms: TransformResult[];
   destination?: DestinationReport;
   context?: ContextReport;
+  payloadThreatScore?: number;
   findings: Finding[];
   action: 'allow' | 'review' | 'block';
   createdAt: string;
