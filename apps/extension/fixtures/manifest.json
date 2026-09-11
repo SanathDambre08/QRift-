@@ -1,0 +1,25 @@
+{
+  "fixtures": [
+    {
+      "id": "valid_url_qr",
+      "description": "A valid QR code containing a safe URL.",
+      "path": "valid_url.png",
+      "expectedDecodeStatus": "SUCCESS",
+      "expectedRiskLevel": "LOW"
+    },
+    {
+      "id": "malicious_url_qr",
+      "description": "A QR code containing a known malicious URL.",
+      "path": "malicious_url.png",
+      "expectedDecodeStatus": "SUCCESS",
+      "expectedRiskLevel": "CRITICAL"
+    },
+    {
+      "id": "obfuscated_qr",
+      "description": "A QR code that uses metamorphic techniques (e.g., slight blur/scale) to evade simple scanners.",
+      "path": "obfuscated.png",
+      "expectedDecodeStatus": "SUCCESS",
+      "expectedRiskLevel": "MEDIUM"
+    }
+  ]
+}

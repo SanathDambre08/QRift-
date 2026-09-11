@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QRift Test Harness</title>
+  <style>
+    body { font-family: sans-serif; background: #0f172a; color: #f8fafc; padding: 2rem; }
+    h1 { color: #38bdf8; }
+    .test-box { border: 1px solid #334155; padding: 1rem; margin-bottom: 1rem; border-radius: 8px; }
+    .status { font-weight: bold; }
+    .pass { color: #4ade80; }
+    .fail { color: #f87171; }
+  </style>
+</head>
+<body>
+  <h1>QRift Fixture Testing</h1>
+  <div id="results"></div>
+  <script>
+    // Mock for manual testing since we can't easily auto-run extension context without playwright
+    document.getElementById('results').innerHTML = '<div class="test-box"><h3>Load the unpacked extension in Chrome</h3><p>1. Go to chrome://extensions<br>2. Enable Developer Mode<br>3. Load unpacked: /Users/sanathdambre/Qrift/apps/extension/.output/chrome-mv3<br>4. Try using the extension.</p></div>';
+  </script>
+</body>
+</html>
