@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Shield, QrCode, Globe, Upload, AlertTriangle, CheckCircle, Search, Activity, Users, BarChart3, Mail } from 'lucide-react';
+import { Shield, QrCode, Globe, Upload, AlertTriangle, CheckCircle, Search, Users, BarChart3, Mail } from 'lucide-react';
 import jsQR from 'jsqr';
 
 interface ScanResult {
