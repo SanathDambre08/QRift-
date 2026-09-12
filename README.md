@@ -42,11 +42,9 @@ QRift is a modern monorepo built with cutting-edge tools:
    - The extension will automatically load in a new Chrome instance.
 
 ## 👨‍🎓 The Team
-Built by passionate cybersecurity students:
+Built by passionate cybersecurity student:
 - Sanath Dambre
-- Ayush Tated
-- Om Bikkad
-- Sahil Gadghe
+
 
 ## 🛡️ License
 This project is licensed under the MIT License.
